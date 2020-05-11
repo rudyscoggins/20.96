@@ -16,8 +16,4 @@ https://www.nuget.org/packages/Ungerboeck2093SDK/
 
 At any time, you can see the matching Ungerboeck version of the SDKPackage or SDKWrapper by going to the assembly details.
 
-##20.93 Updates:
--All SDK and example code is now in C# and is no longer VB.
--Added wrapper functions and examples for the 55 new Read-Only Endpoints
--Added wrapper functions and examples for fully CRUD enabled Notes and Registrants
--Added many other wrapper functions and examples for other specific uses.
+
