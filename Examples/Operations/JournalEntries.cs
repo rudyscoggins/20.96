@@ -35,34 +35,45 @@ namespace Examples.Operations
     /// </summary>
     public JournalEntriesModel Add(string orgCode, int Event, int year, int period, string source, string entryNumber, string status, string description, System.DateTime transactionDate)
     {
-        var myJournalEntry = new JournalEntriesModel
-        {
-            Organization = orgCode,
-            Event = Event,
-            Year = year,
-            Period = period,
-            Source = source,
-            EntryNumber = entryNumber,
-            Status = status,
-            Description = description,
-            TransactionDate = transactionDate
-        };
+      var myJournalEntry = new JournalEntriesModel
+      {
+        Organization = orgCode,
+        Event = Event,
+        Year = year,
+        Period = period,
+        Source = source,
+        EntryNumber = entryNumber,
+        Status = status,
+        Description = description,
+        TransactionDate = transactionDate
+      };
 
-        return APIUtil.AddJournalEntry(USISDKClient, myJournalEntry);
+      return APIUtil.AddJournalEntry(USISDKClient, myJournalEntry);
     }
-        /// <summary>
-        /// Updates an existing journal entry by updating the description value
-        /// </summary>
-       public JournalEntriesModel Edit(string orgCode, int year, int period, string source, string entryNumber)
-        {
-            JournalEntriesModel journalEntryModel = APIUtil.GetJournalEntry(USISDKClient, orgCode, year, period, source, entryNumber);
-            string description = "Journal entry description edited via test " + System.DateTime.Now.ToString();
-            journalEntryModel.Description = description;
+   
+    /// <summary>
+    /// Updates an existing journal entry by updating the description value
+    /// </summary>
+    public JournalEntriesModel Edit(string orgCode, int year, int period, string source, string entryNumber)
+    {
+      JournalEntriesModel journalEntryModel = APIUtil.GetJournalEntry(USISDKClient, orgCode, year, period, source, entryNumber);
+      string description = "Journal entry description edited via test " + System.DateTime.Now.ToString();
+      journalEntryModel.Description = description;
 
 
-            journalEntryModel = APIUtil.UpdateJouralEntry(USISDKClient, journalEntryModel);
-            return journalEntryModel;
-        }
+      journalEntryModel = APIUtil.UpdateJouralEntry(USISDKClient, journalEntryModel);
+      return journalEntryModel;
+    }
+
+    /// <summary>
+    /// You can retrieve journal entries attached to journal entries items by utilizing the Select ability of the odata string.  
+    /// Be sure to include the [], as this denotes it's a nested model.
+    /// </summary> 
+    public IEnumerable<JournalEntriesModel> GetWithJournalEntryDetails(string orgCode, int year, int period, string source, string entryNumber)
+    {
+      SearchMetadataModel searchMetadata = null;
+      return APIUtil.GetSearchList<JournalEntriesModel>(USISDKClient, ref searchMetadata, orgCode, $"Year eq {year} and Period eq {period} and Source eq {source} and EntryNumber eq {entryNumber}", "", 10000, 10000, new List<string> { "[JournalEntryDetails]" });
+    }
 
   }
 }

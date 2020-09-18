@@ -73,5 +73,29 @@ namespace Examples.Operations
 
       return APIUtil.SetRegistrantApproval(USISDKClient, myOrderRegistrantApproval);      
     }
+
+    /// <summary>
+    /// This is an example of check-in registrant order
+    /// </summary>
+    /// <param name="orgCode">Organization code</param>
+    /// <param name="registrantSequenceNbr">Registration Order Sequence Number</param>
+    /// /// <param name="eventId">Event ID</param>
+    public void CheckIn(string orgCode, int registrantSequenceNbr, int eventId)
+    {
+      //Note that only error responses are returned from this action call --.Wait() allows errors to catch properly here.
+      APIUtil.AwaitCheckIn(USISDKClient, orgCode, registrantSequenceNbr, eventId).Wait();
+    }
+
+    /// <summary>
+    /// This is an example of clear check-in registrant order
+    /// </summary>
+    /// <param name="orgCode">Organization code</param>
+    /// <param name="registrantSequenceNbr">Registration Order Sequence Number</param>
+    /// /// <param name="eventId">Event ID</param>
+    public void ClearCheckIn(string orgCode, int registrantSequenceNbr, int eventId)
+    {
+      //Note that only error responses are returned from this action call --.Wait() allows errors to catch properly here.
+      APIUtil.AwaitClearCheckIn(USISDKClient, orgCode, registrantSequenceNbr, eventId).Wait();
+    }
   }
 }

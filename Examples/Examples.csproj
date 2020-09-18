@@ -47,7 +47,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UngerboeckSDKPackage, Version=20.9.6.0, Culture=neutral, PublicKeyToken=e3abb68053174cbc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ungerboeck2096SDK.20.96.0\lib\net472\UngerboeckSDKPackage.dll</HintPath>
+      <HintPath>..\packages\Ungerboeck2096SDK.20.96.1\lib\net472\UngerboeckSDKPackage.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +73,7 @@
     <Compile Include="Operations\Concessions.cs" />
     <Compile Include="Operations\Contracts.cs" />
     <Compile Include="Operations\Countries.cs" />
+    <Compile Include="Operations\CurrencyCodes.cs" />
     <Compile Include="Operations\CustomerTerms.cs" />
     <Compile Include="Operations\CustomFieldSets.cs" />
     <Compile Include="Operations\CustomFieldValidationTables.cs" />
@@ -90,10 +91,13 @@
     <Compile Include="Operations\EventsPriceList.cs" />
     <Compile Include="Operations\EventStatuses.cs" />
     <Compile Include="Operations\Exhibitors.cs" />
+    <Compile Include="Operations\PublicLanguages.cs" />
     <Compile Include="Operations\Functions.cs" />
     <Compile Include="Operations\FunctionSeatingCharts.cs" />
     <Compile Include="Operations\General.cs" />
     <Compile Include="Operations\GLAccounts.cs" />
+    <Compile Include="Operations\InvoiceDetails.cs" />
+    <Compile Include="Operations\InvoiceDetailTaxes.cs" />
     <Compile Include="Operations\OrderStatuses.cs" />
     <Compile Include="Operations\InventoryStats.cs" />
     <Compile Include="Operations\InventoryItems.cs" />
@@ -119,6 +123,12 @@
     <Compile Include="Operations\CurrencyRates.cs" />
     <Compile Include="Operations\PendingPayments.cs" />
     <Compile Include="Operations\PurchaseOrderApproval.cs" />
+    <Compile Include="Operations\FunctionCheckIns.cs" />
+    <Compile Include="Operations\RegistrationConfigurations.cs" />
+    <Compile Include="Operations\RegistrationPreferenceTypes.cs" />
+    <Compile Include="Operations\SessionProposalEvaluationCriteriaResponses.cs" />
+    <Compile Include="Operations\SessionProposalEvaluations.cs" />
+    <Compile Include="Operations\SessionProposals.cs" />
     <Compile Include="Operations\UserRoles.cs" />
     <Compile Include="Operations\Roles.cs" />
     <Compile Include="Operations\Users.cs" />
@@ -155,17 +165,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\UngerboeckSDKWrapper\UngerboeckSDKWrapper.csproj">
       <Project>{54aa76b0-e061-4467-8625-5c16ede638f0}</Project>
       <Name>UngerboeckSDKWrapper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

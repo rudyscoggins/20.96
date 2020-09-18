@@ -15,7 +15,7 @@ namespace Examples.Operations
 		/// </summary>
 		public InventoryStatsModel Get(string orgCode, string item, string space, string lotSerialNumber)
     {
-      return APIUtil.GetInventoryStats(USISDKClient, orgCode, item, space, lotSerialNumber);
+      return APIUtil.GetInventoryStat(USISDKClient, orgCode, item, space, lotSerialNumber);
     }
 
     /// <summary>

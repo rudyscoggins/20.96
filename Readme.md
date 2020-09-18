@@ -16,4 +16,5 @@ https://www.nuget.org/packages/Ungerboeck2093SDK/
 
 At any time, you can see the matching Ungerboeck version of the SDKPackage or SDKWrapper by going to the assembly details.
 
-
+##20.96 Updates:
+-Added many endpoints in the UngerboeckSDKPackage and UngerboeckSDKWrapper 

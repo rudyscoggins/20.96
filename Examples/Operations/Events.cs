@@ -44,7 +44,7 @@ namespace Examples.Operations
       //Note for multi-value UDFs, it will convert to a CONTAINS search.
 
       //This is searching for Event user fields of Issue Class = C (event sales), Issue Type code = 01, organization code = 10, and User Text 07 (TXT_07).  It will return events where the value is "pop"
-      return APIUtil.GetSearchList<EventsModel>(USISDKClient, ref searchMetadata, orgCode, "C|01|10|UserText07 eq 'pop'");      
+      return APIUtil.GetSearchList<EventsModel>(USISDKClient, ref searchMetadata, orgCode, "C|01|10|UserText05 eq 'BCK'");      
     }
 
     /// <summary>
@@ -91,7 +91,7 @@ namespace Examples.Operations
       return APIUtil.UpdateEvent(USISDKClient, myEvent);
     }
 
-    public EventsModel AddWithUserFields(string orgCode, string eventName, string accountCode, string issueType, string newTxt12Value)
+    public EventsModel AddWithUserFields(string orgCode, string eventName, string accountCode, string issueType, string newTxt06Value)
     {
       var myEvent = new EventsModel
       {
@@ -108,7 +108,7 @@ namespace Examples.Operations
 
       //Note that class is always EventSales (C) and is automatically set in Ungerboeck.
       myUserField.Type = issueType; //Use the Opportunity Type code from your user field.  This matches the value stored in Ungerboeck table column CR073_ISSUE_TYPE.
-      myUserField.UserText12 = newTxt12Value; //Set the value in the user field property
+      myUserField.UserText06 = newTxt06Value; //Set the value in the user field property
       myEvent.EventUserFieldSets.Add(myUserField); //Then add it back into the EventModel object.  You can add multiple user field sets to the same event object before saving.
 
       return APIUtil.AddEvent(USISDKClient, myEvent);
@@ -198,8 +198,7 @@ namespace Examples.Operations
         myEvent.PreviousEvent = otherEventID;
         myEvent.PriceList = "2001-STD";
         myEvent.Public = "Y";
-        myEvent.Rank = "T";
-        myEvent.Release = DateTime.Now;
+        myEvent.Rank = "T";        
         myEvent.Requester = myParentAccount;
         myEvent.RequesterContact = myContactAccount;
         myEvent.RevisedAttendance = 5;
@@ -214,17 +213,18 @@ namespace Examples.Operations
         myEvent.Type = "EDU";
         myEvent.WebAddress = "www.ungerboeck.com";
 
-        //Various date values                                                                                                                                                                                              
-        myEvent.StartDate = DateTime.Now.Date;
-        myEvent.StartTime = DateTime.Now;
-        myEvent.InDate = DateTime.Now.Date;
-        myEvent.InTime = DateTime.Now;
-        myEvent.OutDate = DateTime.Now.Date.AddDays(1);
-        myEvent.OutTime = DateTime.Now;
-        myEvent.EndDate = DateTime.Now.Date.AddDays(1);
-        myEvent.EndTime = DateTime.Now;
+      //Various date values                                                                                                                                                                                              
+      //myEvent.StartDate = DateTime.Now.Date;
+      //myEvent.StartTime = DateTime.Now;
+      //myEvent.InDate = DateTime.Now.Date;
+      //myEvent.InTime = DateTime.Now;
+      //myEvent.OutDate = DateTime.Now.Date.AddDays(1);
+      //myEvent.OutTime = DateTime.Now;
+      //myEvent.EndDate = DateTime.Now.Date.AddDays(1);
+      //myEvent.EndTime = DateTime.Now;
+      //myEvent.Release = DateTime.Now;
 
-         return APIUtil.UpdateEvent(USISDKClient, myEvent);
-        }
+      return APIUtil.UpdateEvent(USISDKClient, myEvent);
+    }
   }
 }

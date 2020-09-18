@@ -66,7 +66,7 @@ namespace Examples.Operations
       myPayment.Reference = "Check";    //This should not contain sensitive info for API use.  Corresponds with AR020_CC_CHECK
       myPayment.UserReference = "Some user info"; //Corresponds with AR020_USER_REFERENCE
       myPayment.Internal = "Y";          //Y or N for if the payment is internal or not
-      myPayment.Date = System.DateTime.Now;              //This defaults to current date if not filled
+      //myPayment.Date = System.DateTime.Now;              //This defaults to current date if not filled
 
 
       //The payor info fields should only be edited if the payor is a 3rd party

@@ -59,7 +59,7 @@
       <Version>11.0.1</Version>
     </PackageReference>
     <PackageReference Include="Ungerboeck2096SDK">
-      <Version>20.96.0</Version>
+      <Version>20.96.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -67,7 +67,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"C:\DevProjects\Utils\Main\Source\Code\Build Scripts\DigitalSign.bat" "UngerboeckSDKWrapper" "$(TargetPath)"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

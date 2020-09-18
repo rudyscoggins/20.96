@@ -2,30 +2,30 @@
 using UngerboeckSDKWrapper;
 using UngerboeckSDKPackage;
 using System.Collections.Generic;
+using System;
 
 namespace Examples.Operations
 {
-  public class InventoryItems : Base
+  public class CurrencyCodes : Base
   {
-    public InventoryItems(HttpClient USISDKClient) : base(USISDKClient)
+    public CurrencyCodes(HttpClient USISDKClient) : base(USISDKClient)
     {
     }
     /// <summary>
 		/// A basic retrieve example
 		/// </summary>
-		public InventoryItemsModel Get(string orgCode, string code)
+		public CurrencyCodesModel Get(string Code)
     {
-      return APIUtil.GetInventoryItem(USISDKClient, orgCode, code);
+      return APIUtil.GetCurrencyCode(USISDKClient, Code);
     }
 
     /// <summary>
     /// How to retrieve all.  For high volume, we recommend using a specific query when searching, shown in the General class.
     /// </summary>   
-    public IEnumerable<InventoryItemsModel> RetrieveAll(string orgCode)
+    public IEnumerable<CurrencyCodesModel> RetrieveAll()
     {
       SearchMetadataModel searchMetadata = null;
-      return APIUtil.GetSearchList<InventoryItemsModel>(USISDKClient, ref searchMetadata, orgCode, "All");
+      return APIUtil.GetSearchList<CurrencyCodesModel>(USISDKClient, ref searchMetadata, null, "All");
     }
-
   }
 }

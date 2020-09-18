@@ -28,40 +28,45 @@ namespace Examples.Operations
       return APIUtil.GetSearchList<JournalEntryDetailsModel>(USISDKClient, ref searchMetadata, orgCode, "All");
     }
 
-
-        /// <summary>
-        /// Adds a Journal Entry 
-        /// </summary>
-        public JournalEntryDetailsModel Add(string orgCode, int Event, int year, int period, string source, string entryNumber, string status, string description, string glAccount, System.DateTime date)
-        {
-            var myJournalEntryDetail = new JournalEntryDetailsModel
-            {
-                Organization = orgCode,
-                Event = Event,
-                Year = year,
-                Period = period,
-                Source = source,
-                EntryNumber = entryNumber,
-                Status = status,
-                Description = description,
-                GLAccount = glAccount,
-                Date = date
-            };
-
-            return APIUtil.AddJournalEntryDetail(USISDKClient, myJournalEntryDetail);
-        }
-
-        /// <summary>
-        /// Updates an existing journal entry by updating the description value
-        /// </summary>
-        public JournalEntryDetailsModel Edit(string orgCode, int year, int period, string source, string entryNumber, int line)
-        {
-            JournalEntryDetailsModel journalEntryDetailModel = APIUtil.GetJournalEntryDetail(USISDKClient, orgCode, year, period, source, entryNumber, line);
-            string description = journalEntryDetailModel.Description +  " : description edited via test " + System.DateTime.Now.ToString();
-            journalEntryDetailModel.Description = description;
-
-            journalEntryDetailModel = APIUtil.UpdateJouralEntryDetail(USISDKClient, journalEntryDetailModel);
-            return journalEntryDetailModel;
-        }
+    public IEnumerable<JournalEntryDetailsModel> RetrieveByOData(string orgCode, string oData)
+    {
+      SearchMetadataModel searchMetadata = null;
+      return APIUtil.GetSearchList<JournalEntryDetailsModel>(USISDKClient, ref searchMetadata, orgCode, oData);
     }
+
+    /// <summary>
+    /// Adds a Journal Entry 
+    /// </summary>
+    public JournalEntryDetailsModel Add(string orgCode, int Event, int year, int period, string source, string entryNumber, string status, string description, string glAccount, System.DateTime date)
+    {
+      var myJournalEntryDetail = new JournalEntryDetailsModel
+      {
+        Organization = orgCode,
+        Event = Event,
+        Year = year,
+        Period = period,
+        Source = source,
+        EntryNumber = entryNumber,
+        Status = status,
+        Description = description,
+        GLAccount = glAccount,
+        Date = date
+      };
+
+      return APIUtil.AddJournalEntryDetail(USISDKClient, myJournalEntryDetail);
+    }
+
+    /// <summary>
+    /// Updates an existing journal entry by updating the description value
+    /// </summary>
+    public JournalEntryDetailsModel Edit(string orgCode, int year, int period, string source, string entryNumber, int line)
+    {
+      JournalEntryDetailsModel journalEntryDetailModel = APIUtil.GetJournalEntryDetail(USISDKClient, orgCode, year, period, source, entryNumber, line);
+      string description = journalEntryDetailModel.Description + " : Inventory JE import " + System.DateTime.Now.ToString();
+      journalEntryDetailModel.Description = description;
+
+      journalEntryDetailModel = APIUtil.UpdateJouralEntryDetail(USISDKClient, journalEntryDetailModel);
+      return journalEntryDetailModel;
+    }
+  }
 }
