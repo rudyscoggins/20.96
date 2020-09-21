@@ -8,11 +8,11 @@ This class library shows how to use every endpoint programmatically, including s
 
 ## SDKWrapper 
 Contains pre-made wrapper calls to quickly get your client connected to the Ungerboeck API.  This lives as a package on Nuget, but it coexists here to allow you to see the code.  
-https://www.nuget.org/packages/Ungerboeck2093SDKWrapper/
+https://www.nuget.org/packages/Ungerboeck2096SDKWrapper/
 
 ## UngerboeckSDKPackage 
 This contains pre-made models and constants to help your client code.  It only lives on Nuget.  
-https://www.nuget.org/packages/Ungerboeck2093SDK/
+https://www.nuget.org/packages/Ungerboeck2096SDK/
 
 At any time, you can see the matching Ungerboeck version of the SDKPackage or SDKWrapper by going to the assembly details.
 
