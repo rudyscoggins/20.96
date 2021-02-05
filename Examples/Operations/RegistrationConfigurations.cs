@@ -144,8 +144,8 @@ namespace Examples.Operations
       RegistrationConfigurationsModel regConfig = APIUtil.GetRegistrationConfiguration(USISDKClient, orgCode, configurationCode);
 
       regConfig.Description = "Conference Registration - EU";
-      regConfig.RegistrationStarts = new DateTime(2020, 2, 15, 8, 55, 0); // must passed time with date
-      regConfig.RegistrationStarts = new DateTime(2021, 2, 15, 20, 5, 0); // must passed time with date
+      regConfig.RegistrationStarts = new DateTime(2020, 9, 14, 8, 55, 0); // must passed time with date
+      regConfig.RegistrationEnds = new DateTime(2020, 11, 2, 20, 5, 0); // must passed time with date
       regConfig.PriceList = "FLD";
       regConfig.RegistrantType = "VIPMEMBERS"; // Members only
       regConfig.OrderStatus = "RF";
@@ -182,8 +182,8 @@ namespace Examples.Operations
       regConfig.EnableHousing = "Y";
       regConfig.ShowPropertyDetails = "Y";
       regConfig.PropertyNoteClasses = "BENM10,DAN";
-      regConfig.HousingStartDate = new DateTime(2020, 2, 15, 8, 55, 0);
-      regConfig.HousingEndDate = new DateTime(2021, 2, 15, 20, 5, 0);
+      regConfig.HousingStartDate = new DateTime(2020, 9, 14, 8, 55, 0);
+      regConfig.HousingEndDate = new DateTime(2020, 11, 2, 20, 5, 0);
       regConfig.SuppressRates = "N";
       regConfig.HousingRequired = "N";
       regConfig.SuppressHousingForGuests = "N";

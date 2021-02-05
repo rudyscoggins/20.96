@@ -59,11 +59,8 @@
       <Version>11.0.1</Version>
     </PackageReference>
     <PackageReference Include="Ungerboeck2096SDK">
-      <Version>20.96.1</Version>
+      <Version>20.96.2.7</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

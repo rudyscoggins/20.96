@@ -43,7 +43,7 @@ namespace Examples.Operations
       //This will only work for active User Fields in your organization.
       //Note for multi-value UDFs, it will convert to a CONTAINS search.
 
-      //This is searching for Session Proposal user fields of Issue Class = B, Issue Type code = 08, organization code = 10, and User Text 02 (Text02).  It will return session proposal where the address is 'UPI test address'      
+      //This is searching for Session Proposal user fields of Issue Class = B, Issue Type code = KB, organization code = 10, and User Text 02 (Text02).  It will return session proposal where the address is 'UPI test address'      
       return APIUtil.GetSearchList<SessionProposalsModel>(USISDKClient, ref searchMetadata, orgCode, "B|KB|10|UserText02 eq 'SilverLight Garbage 2018'");
     }
 

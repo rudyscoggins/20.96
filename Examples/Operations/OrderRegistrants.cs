@@ -17,6 +17,15 @@ namespace Examples.Operations
     }
 
     /// <summary>
+    /// Retrieve all order registrants per event. 
+    /// </summary> 
+    public IEnumerable<OrderRegistrantsModel> GetByEvent(string orgCode, int eventID)
+    {
+      SearchMetadataModel searchMetadata = null;
+      return APIUtil.GetSearchList<OrderRegistrantsModel>(USISDKClient, ref searchMetadata, orgCode, $"Event eq {eventID}");
+    }
+
+    /// <summary>
     /// How to retrieve all.  For high volume, we recommend using a specific query when searching, shown in the General class.
     /// </summary>   
     public IEnumerable<OrderRegistrantsModel> RetrieveAll(string orgCode)
