@@ -28,16 +28,4 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {664E3E3B-EBD3-413A-92EF-701D9A9ACCF2}
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://dev.azure.com/ungerboeck-dev/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Examples\\Examples.csproj
-		SccProjectName1 = Examples
-		SccLocalPath1 = Examples
-		SccProjectUniqueName2 = UngerboeckSDKWrapper\\UngerboeckSDKWrapper.csproj
-		SccProjectName2 = UngerboeckSDKWrapper
-		SccLocalPath2 = UngerboeckSDKWrapper
-	EndGlobalSection
 EndGlobal
